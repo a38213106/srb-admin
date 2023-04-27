@@ -98,6 +98,28 @@ export const constantRoutes = [
     },
   ]
   },
+  {
+    path: '/borrower',
+    component: Layout,
+    redirect: '/borrower/list',
+    alwaysShow: true ,
+    meta: { title: '借款人管理', icon: 'dashboard' },
+    children: [
+      {
+      path: 'list',
+      name: 'borrowerList',
+      component: () => import('@/views/borrower/list'),
+      meta: { title: '借款人列表', icon: 'table' }
+    },
+    {
+      path: 'detail/:id',
+      hidden:true,
+      name: 'detailBorrowerList',
+      component: () => import('@/views/borrower/form'),
+      meta: { title: '借款人详情', icon: 'form' }
+    },
+  ]
+  },
   
 
 

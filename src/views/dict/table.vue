@@ -4,7 +4,7 @@
       <el-button
         type="primary"
         icon="el-icon-download"
-        @click="dialogFormVisible = true"
+        @click="dialogFormVisible1 = true"
         >导入EXCEL</el-button
       >
 
@@ -53,7 +53,7 @@
           name是上传的文件名称，默认是file
       -->
 
-      <el-dialog title="导入数据字典" :visible.sync="dialogFormVisible">
+      <el-dialog title="导入数据字典" :visible.sync="dialogFormVisible1">
         <el-upload
           class="upload-demo"
           ref="upload"
@@ -78,7 +78,7 @@
           <div slot="tip" class="el-upload__tip">只能上传EXCEL文件</div>
         </el-upload>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
+          <el-button @click="dialogFormVisible1 = false">取 消</el-button>
         </div>
       </el-dialog>
       <el-dialog title="数据字典" :visible.sync="dialogFormVisible">
@@ -125,6 +125,7 @@ export default {
     return {
       labelPosition: "left",
       dialogFormVisible: false,
+      dialogFormVisible1: false,
       uploadPath: "http://192.168.72.128:8090/admin/core/dict/import",
       parentId: "1",
       dicts: [],

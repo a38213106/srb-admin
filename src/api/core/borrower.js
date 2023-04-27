@@ -1,23 +1,17 @@
 import request from '@/utils/request'
 export default{
-    getListPage(keyword,limit,page){
+    getListPage(pageNum,pageSize,keyWord){
         return request({
             method:'get',
-            url:`/admin/core/borrower/getListPage/${limit}/${page}`,
-            params:{keyword}//?keyword=keyword
+            url:`/admin/core/borrower/listBorrowerPage/${pageNum}/${pageSize}`,
+            params:{keyWord}//?keyWord=keyWord
         })
     },
-    getBorrowerById(id){
+    saveApproval(approval){
         return request({
-            method:'get',
-            url:`/admin/core/borrower/getBorrowerById/${id}`
-        })
-    },
-    approvalSubmit(approvalForm){
-        return request({
-            method:'POST',
-            url:`/admin/core/borrower/approvalSubmit/`,
-            data:approvalForm
+            method:'post',
+            url:"/admin/core/borrower/",
+            data:approval
         })
     }
 }
