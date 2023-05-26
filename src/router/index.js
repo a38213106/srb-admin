@@ -103,7 +103,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/borrower/list',
     alwaysShow: true ,
-    meta: { title: '借款人管理', icon: 'dashboard' },
+    meta: { title: '借款管理', icon: 'dashboard' },
     children: [
       {
       path: 'list',
@@ -112,11 +112,46 @@ export const constantRoutes = [
       meta: { title: '借款人列表', icon: 'table' }
     },
     {
+      path: 'infoList',
+      name: 'borrowerInfoList',
+      component: () => import('@/views/borrower/borrowerinfo'),
+      meta: { title: '借款列表', icon: 'table' }
+    },
+    {
       path: 'detail/:id',
       hidden:true,
       name: 'detailBorrowerList',
       component: () => import('@/views/borrower/form'),
       meta: { title: '借款人详情', icon: 'form' }
+    },
+    {
+      path: 'info-detail/:id',
+      name: 'detailBorrowerInfoList',
+      hidden: true,
+      component: () => import('@/views/borrower/borrowerinfo-detail'),
+      meta: { title: '借款详情', icon: 'table' }
+    },
+  ]
+  },
+  {
+    path: '/lend',
+    component: Layout,
+    redirect: '/lend/list',
+    alwaysShow: true ,
+    meta: { title: '标的管理', icon: 'dashboard' },
+    children: [
+      {
+      path: 'list',
+      name: 'lendList',
+      component: () => import('@/views/lend/list'),
+      meta: { title: '标的列表', icon: 'table' }
+    },
+    {
+      path: 'detail/:id',
+      name: 'detail',
+      hidden:true,
+      component: () => import('@/views/lend/detail'),
+      meta: { title: '标的详情', icon: 'table' }
     },
   ]
   },
